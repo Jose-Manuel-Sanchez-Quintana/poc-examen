@@ -2,9 +2,9 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ "main, develop" ]
+    branches: [ main, develop ]
   pull_request:
-    branches: [ "main, develop" ]
+    branches: [ main, develop ]
 
 permissions:
   contents: read
@@ -33,7 +33,7 @@ jobs:
       run: composer install --prefer-dist --no-progress
       
     - name: Composer Test
-      run: composer tests test
+      run: composer test tests
 
     - name: Composer linter
-      run: composer lint
+      run: composer lint tests
